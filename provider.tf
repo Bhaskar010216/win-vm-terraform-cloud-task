@@ -1,5 +1,3 @@
-final provider.tf
-
 terraform {
 required_providers {
 azurerm = {
