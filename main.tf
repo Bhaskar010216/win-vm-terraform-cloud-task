@@ -36,6 +36,27 @@ ip_configuration {
   private_ip_address_allocation = "Dynamic"
 }
 }
+resource "azurerm_network_security_group" "sunny" {
+  name                = "sunny-nsg"
+  location            = azurerm_resource_group.sunny.location
+  resource_group_name = azurerm_resource_group.sunny.name
+
+  security_rule {
+    name                       = "RDP"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "3389"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+resource "azurerm_subnet_network_security_group_association" "sunny" {
+  subnet_id                 = azurerm_subnet.sunny.id
+  network_security_group_id = azurerm_network_security_group.sunny.id
+}
 
 resource "azurerm_windows_virtual_machine" "example" {
   name                  = var.vmname
