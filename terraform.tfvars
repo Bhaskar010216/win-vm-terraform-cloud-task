@@ -1,0 +1,12 @@
+rg = "bhaskar-16thaug_new"
+location = "East Asia"
+vn = "raj-vn-new"
+as = ["10.0.0.0/19"]
+sn = "raj-sn-new"
+address_prefixes = ["10.0.0.0/25"]
+ip = "my-public-ip-new"
+nic = "raj-nic-new"
+vmname = "raj-vm-new"
+size = "Standard_F2"
+username = "Bhaskar"
+password = "Bhaskar123"
